@@ -71,28 +71,28 @@ export default {
   },
   computed: {
     s1path() {
-      return '/assets/images/' + this.dates[this.count] + '/S1.jpg'
+      return './assets/images/' + this.dates[this.count] + '/S1.jpg'
     },
     s2path() {
-      return '/assets/images/' + this.dates[this.count] + '/S2.jpg'
+      return './assets/images/' + this.dates[this.count] + '/S2.jpg'
     },
     s3path() {
-      return '/assets/images/' + this.dates[this.count] + '/S3.jpg'
+      return './assets/images/' + this.dates[this.count] + '/S3.jpg'
     },
     s4path() {
-      return '/assets/images/' + this.dates[this.count] + '/S4.jpg'
+      return './assets/images/' + this.dates[this.count] + '/S4.jpg'
     },
     s5path() {
-      return '/assets/images/' + this.dates[this.count] + '/S5.jpg'
+      return './assets/images/' + this.dates[this.count] + '/S5.jpg'
     },
     s6path() {
-      return '/assets/images/' + this.dates[this.count] + '/S6.jpg'
+      return './assets/images/' + this.dates[this.count] + '/S6.jpg'
     },
     s7path() {
-      return '/assets/images/' + this.dates[this.count] + '/S7.jpg'
+      return './assets/images/' + this.dates[this.count] + '/S7.jpg'
     },
     s8path() {
-      return '/assets/images/' + this.dates[this.count] + '/S8.jpg'
+      return './assets/images/' + this.dates[this.count] + '/S8.jpg'
     },
 
   }
