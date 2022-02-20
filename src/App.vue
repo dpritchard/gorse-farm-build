@@ -1,9 +1,9 @@
 <template>
   <div class="container mx-auto">
     <div class="flex space-between items-center p-2">
-      <a @click="decrement" class="w-1/4 bg-blue-300 rounded-lg items-center p-2">&lt;</a>
-      <p class="w-1/2 text-center">{{ this.dates[this.count] }}</p>
-      <a @click="increment" class="w-1/4 bg-blue-300 rounded-lg items-center p-2 text-right">></a>
+      <a @click="decrement" class="w-1/6 md:w-1/4 bg-blue-300 rounded-lg items-center p-1 md:p-2">&lt;</a>
+      <p class="w-full text-center">{{ this.dates[this.count] }}</p>
+      <a @click="increment" class="w-1/6 md:w-1/4 bg-blue-300 rounded-lg items-center p-1 md:p-2 text-right">></a>
     </div>
     <div class="flex flex-wrap">
       <div class="md:basis-1/2 lg:basis-1/4 p-2">
@@ -48,28 +48,35 @@ export default {
   name: 'App',
   data() {
     return {
-      count: 0,
+      count: 3,
       missingPath: '/assets/images/missing.jpg',
       dates: [
         '2022-02-11',
         '2022-02-14',
-        '2022-02-17'
+        '2022-02-17',
+        '2022-02-20'
       ]
     }
   },
   methods: {
     increment() {
-      if(this.count < this.dates.length-1){
+      if(this.hasNext){
         this.count++
       }
     },
     decrement() {
-      if(this.count > 0){
+      if(this.hasPrevious){
         this.count-- 
       }
     }
   },
   computed: {
+    hasPrevious() {
+      return this.count > 0
+    },
+    hasNext() {
+      return this.count < this.dates.length-1
+    },
     s1path() {
       return './assets/images/' + this.dates[this.count] + '/S1.jpg'
     },

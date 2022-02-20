@@ -2,14 +2,17 @@
 	<div :id="name" class="overlay text-left">
          <a href="#" class="cancel"></a>
 
-         <div class="modal">
-         	<div class="flex space-between items-center p-2">
-		      <a @click="$emit('decrement')" class="w-1/4 bg-blue-300 rounded-lg items-center p-2">&lt;</a>
-		      <p class="w-1/2 text-center">{{ date }}</p>
-		      <a @click="$emit('increment')" class="w-1/4 bg-blue-300 rounded-lg items-center p-2 text-right">></a>
-		    </div>
-             <img :src="src">
-             <a href="#" class="close">&times;</a>
+         <div class="modal rounded p-2">
+         	<div class="flex space-between items-center pb-2">
+		      <a @click="$emit('decrement')" class="w-2/12 md:w-1/4 bg-blue-300 rounded-lg items-center pl-2 md:p-2 ml-auto mr-2 md:mr-6">&lt;</a>
+		      <p class="text-center w-max">{{ date }}</p>
+		      <a @click="$emit('increment')" class="w-2/12 md:w-1/4 bg-blue-300 rounded-lg items-center pr-2 md:p-2 ml-2 md:ml-6 mr-auto text-right">></a>
+              <a href="#" class="close pr-2">&times;</a>
+            </div>
+            <div>
+                <img :src="src">
+            </div>
+             
          </div>
      </div>
 </template>
@@ -46,15 +49,13 @@
          /*width: 500px;*/
          max-height: 95%;
          background: white;
-         border-radius: 4px;
-         padding: 2.5em;
          box-shadow: 0 5px 11px rgba(36, 37, 38, 0.08);
      }
 
      .modal .close {
-         position: absolute;
-         top: 15px;
-         right: 15px;
+         /*position: absolute;*/
+         /*top: 15px;*/
+         /*right: 15px;*/
          color: grey;
          text-decoration: none;
      }
