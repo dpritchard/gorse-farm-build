@@ -2,7 +2,10 @@
   <div class="container mx-auto">
     <div class="flex space-between items-center p-2">
       <a @click="decrement" class="w-1/6 md:w-1/4 bg-blue-300 rounded-lg items-center p-1 md:p-2">&lt;</a>
-      <p class="w-full text-center">{{ this.dates[this.count] }}</p>
+      <div class="w-full">
+        <p class="text-center">{{ currDate }}</p>
+        <p class="text-center text-xs text-slate-400">{{ currComment }}</p>
+      </div>
       <a @click="increment" class="w-1/6 md:w-1/4 bg-blue-300 rounded-lg items-center p-1 md:p-2 text-right">></a>
     </div>
     <div class="flex flex-wrap">
@@ -32,14 +35,14 @@
       </div>
     </div>
 
-    <modal name="s1" @decrement="decrement" @increment="increment" :date=this.dates[this.count] :src="s1path" />
-    <modal name="s2" @decrement="decrement" @increment="increment" :date=this.dates[this.count] :src="s2path" />
-    <modal name="s3" @decrement="decrement" @increment="increment" :date=this.dates[this.count] :src="s3path" />
-    <modal name="s4" @decrement="decrement" @increment="increment" :date=this.dates[this.count] :src="s4path" />
-    <modal name="s5" @decrement="decrement" @increment="increment" :date=this.dates[this.count] :src="s5path" />
-    <modal name="s6" @decrement="decrement" @increment="increment" :date=this.dates[this.count] :src="s6path" />
-    <modal name="s7" @decrement="decrement" @increment="increment" :date=this.dates[this.count] :src="s7path" />
-    <modal name="s8" @decrement="decrement" @increment="increment" :date=this.dates[this.count] :src="s8path" />
+    <modal name="s1" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s1path" />
+    <modal name="s2" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s2path" />
+    <modal name="s3" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s3path" />
+    <modal name="s4" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s4path" />
+    <modal name="s5" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s5path" />
+    <modal name="s6" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s6path" />
+    <modal name="s7" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s7path" />
+    <modal name="s8" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s8path" />
 </div>
 </template>
 
@@ -48,16 +51,19 @@ export default {
   name: 'App',
   data() {
     return {
-      count: 3,
+      count: 1,
       missingPath: '/assets/images/missing.jpg',
-      dates: [
-        '2022-02-11',
-        '2022-02-14',
-        '2022-02-17',
-        '2022-02-20',
-        '2022-02-22'
+      info: [
+        {date: '2022-02-11', comment: 'Site after house removal'},
+        {date: '2022-02-14', comment: 'First day of site clearance'},
+        {date: '2022-02-17', comment: 'Site clearance complete'},
+        {date: '2022-02-20', comment: 'Initial survey'},
+        {date: '2022-02-22', comment: 'Initial profiles and setout'}
       ]
     }
+  },
+   mounted() {
+    this.count = this.info.length-1
   },
   methods: {
     increment() {
@@ -72,35 +78,45 @@ export default {
     }
   },
   computed: {
+    currDate() {
+      return this.info[this.count].date
+    },
+    currComment() {
+      return this.info[this.count].comment
+    },
+    currDateLabel() {
+      let dd = new Date(this.currDate) // Ugh. 
+      // Probbaly need to import the moment library...
+    },
     hasPrevious() {
       return this.count > 0
     },
     hasNext() {
-      return this.count < this.dates.length-1
+      return this.count < this.info.length-1
     },
     s1path() {
-      return './assets/images/' + this.dates[this.count] + '/S1.jpg'
+      return './assets/images/' + this.currDate + '/S1.jpg'
     },
     s2path() {
-      return './assets/images/' + this.dates[this.count] + '/S2.jpg'
+      return './assets/images/' + this.currDate + '/S2.jpg'
     },
     s3path() {
-      return './assets/images/' + this.dates[this.count] + '/S3.jpg'
+      return './assets/images/' + this.currDate + '/S3.jpg'
     },
     s4path() {
-      return './assets/images/' + this.dates[this.count] + '/S4.jpg'
+      return './assets/images/' + this.currDate + '/S4.jpg'
     },
     s5path() {
-      return './assets/images/' + this.dates[this.count] + '/S5.jpg'
+      return './assets/images/' + this.currDate + '/S5.jpg'
     },
     s6path() {
-      return './assets/images/' + this.dates[this.count] + '/S6.jpg'
+      return './assets/images/' + this.currDate + '/S6.jpg'
     },
     s7path() {
-      return './assets/images/' + this.dates[this.count] + '/S7.jpg'
+      return './assets/images/' + this.currDate + '/S7.jpg'
     },
     s8path() {
-      return './assets/images/' + this.dates[this.count] + '/S8.jpg'
+      return './assets/images/' + this.currDate + '/S8.jpg'
     },
 
   }

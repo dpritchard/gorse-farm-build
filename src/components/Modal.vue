@@ -5,9 +5,12 @@
          <div class="modal rounded p-2">
          	<div class="flex space-between items-center pb-2">
 		      <a @click="$emit('decrement')" class="w-2/12 md:w-1/4 bg-blue-300 rounded-lg items-center pl-2 md:p-2 ml-auto mr-2 md:mr-6">&lt;</a>
-		      <p class="text-center w-max">{{ date }}</p>
+		      <div class="w-full">
+                <p class="text-center">{{ currDate }}</p>
+                <p class="text-center text-xs text-slate-400">{{ currComment }}</p>
+              </div>
 		      <a @click="$emit('increment')" class="w-2/12 md:w-1/4 bg-blue-300 rounded-lg items-center pr-2 md:p-2 ml-2 md:ml-6 mr-auto text-right">></a>
-              <a href="#" class="close pr-2">&times;</a>
+              <a href="#" class="close px-2">&times;</a>
             </div>
             <div>
                 <img :src="src">
@@ -19,7 +22,7 @@
 
 <script>
 	export default {
-		props: ['name', 'date', 'src']
+		props: ['name', 'currDate', 'currComment', 'src']
 	}
 </script>
 
