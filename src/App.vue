@@ -58,7 +58,8 @@ export default {
         {date: '2022-02-14', comment: 'First day of site clearance'},
         {date: '2022-02-17', comment: 'Site clearance complete'},
         {date: '2022-02-20', comment: 'Initial survey'},
-        {date: '2022-02-22', comment: 'Initial profiles and setout'}
+        {date: '2022-02-22', comment: 'Initial profiles and setout'},
+        {date: '2022-02-25', comment: 'Additional site works and tī kōuka transplant'}
       ]
     }
   },
