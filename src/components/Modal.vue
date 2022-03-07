@@ -6,14 +6,14 @@
          	<div class="flex space-between items-center pb-2">
 		      <a @click="$emit('decrement')" class="w-2/12 md:w-1/4 bg-blue-300 rounded-lg items-center pl-2 md:p-2 ml-auto mr-2 md:mr-6">&lt;</a>
 		      <div class="w-full">
-                <p class="text-center">{{ currDate }}</p>
+                <p class="text-center">{{ currDateLabel }}</p>
                 <p class="text-center text-xs text-slate-400">{{ currComment }}</p>
               </div>
 		      <a @click="$emit('increment')" class="w-2/12 md:w-1/4 bg-blue-300 rounded-lg items-center pr-2 md:p-2 ml-2 md:ml-6 mr-auto text-right">></a>
               <a href="#" class="close px-2">&times;</a>
             </div>
             <div>
-                <img :src="src">
+                <img class="modalimg" :src="src">
             </div>
              
          </div>
@@ -22,7 +22,7 @@
 
 <script>
 	export default {
-		props: ['name', 'currDate', 'currComment', 'src']
+		props: ['name', 'currDateLabel', 'currComment', 'src']
 	}
 </script>
 
@@ -69,7 +69,9 @@
          height: 100%;
      }
 
-     .modal>img {
-        max-height: 550px;
+     .modalimg {
+        max-width: 100%;
+        height: auto;
+        max-height: calc(100vh - 150px);
      }
 </style>

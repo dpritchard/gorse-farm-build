@@ -3,7 +3,7 @@
     <div class="flex space-between items-center p-2">
       <a @click="decrement" class="w-1/6 md:w-1/4 bg-blue-300 rounded-lg items-center p-1 md:p-2">&lt;</a>
       <div class="w-full">
-        <p class="text-center">{{ currDate }}</p>
+        <p class="text-center">{{ currDateLabel }}</p>
         <p class="text-center text-xs text-slate-400">{{ currComment }}</p>
       </div>
       <a @click="increment" class="w-1/6 md:w-1/4 bg-blue-300 rounded-lg items-center p-1 md:p-2 text-right">></a>
@@ -35,18 +35,27 @@
       </div>
     </div>
 
-    <modal name="s1" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s1path" />
-    <modal name="s2" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s2path" />
-    <modal name="s3" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s3path" />
-    <modal name="s4" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s4path" />
-    <modal name="s5" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s5path" />
-    <modal name="s6" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s6path" />
-    <modal name="s7" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s7path" />
-    <modal name="s8" @decrement="decrement" @increment="increment" :currDate="currDate" :currComment="currComment" :src="s8path" />
+    <modal name="s1" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
+           :currComment="currComment" :src="s1path" />
+    <modal name="s2" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
+           :currComment="currComment" :src="s2path" />
+    <modal name="s3" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
+           :currComment="currComment" :src="s3path" />
+    <modal name="s4" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
+           :currComment="currComment" :src="s4path" />
+    <modal name="s5" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
+           :currComment="currComment" :src="s5path" />
+    <modal name="s6" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
+           :currComment="currComment" :src="s6path" />
+    <modal name="s7" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
+           :currComment="currComment" :src="s7path" />
+    <modal name="s8" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
+           :currComment="currComment" :src="s8path" />
 </div>
 </template>
 
 <script>
+import { DateTime } from "luxon"
 export default {
   name: 'App',
   data() {
@@ -60,7 +69,8 @@ export default {
         {date: '2022-02-20', comment: 'Initial survey'},
         {date: '2022-02-22', comment: 'Initial profiles and setout'},
         {date: '2022-02-25', comment: 'Additional site works and tī kōuka transplant'},
-        {date: '2022-03-01', comment: 'More profiles and scaffolding!'}
+        {date: '2022-03-01', comment: 'More profiles and scaffolding!'},
+        {date: '2022-03-03', comment: 'Battering the slope and marking floor levels'}
       ]
     }
   },
@@ -87,8 +97,8 @@ export default {
       return this.info[this.count].comment
     },
     currDateLabel() {
-      let dd = new Date(this.currDate) // Ugh. 
-      // Probbaly need to import the moment library...
+      let dd = DateTime.fromISO(this.currDate)
+      return dd.toLocaleString() + ' (' + dd.toRelative() + ')'
     },
     hasPrevious() {
       return this.count > 0
