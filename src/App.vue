@@ -70,7 +70,8 @@ export default {
         {date: '2022-02-22', comment: 'Initial profiles and setout'},
         {date: '2022-02-25', comment: 'Additional site works and tī kōuka transplant'},
         {date: '2022-03-01', comment: 'More profiles and scaffolding!'},
-        {date: '2022-03-03', comment: 'Battering the slope and marking floor levels'}
+        {date: '2022-03-03', comment: 'Battering the slope and marking floor levels'},
+        {date: '2022-03-11', comment: 'Holes and footings'}
       ]
     }
   },
