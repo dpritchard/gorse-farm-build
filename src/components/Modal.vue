@@ -13,7 +13,7 @@
               <a href="#" class="close px-2">&times;</a>
             </div>
             <div>
-                <img class="modalimg" :src="src">
+                <img class="modalimg rounded-lg" :src="src">
             </div>
              
          </div>
