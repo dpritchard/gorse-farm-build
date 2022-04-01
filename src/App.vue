@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto">
+  <div class="container mx-auto" @keydown.left="decrement" @keydown.right="increment">
     <div class="flex space-between items-center p-2">
       <a @click="decrement" class="w-1/6 md:w-1/4 bg-blue-300 rounded-lg items-center p-1 md:p-2">&lt;</a>
       <div class="w-full">
@@ -71,13 +71,26 @@ export default {
         {date: '2022-02-25', comment: 'Additional site works and tī kōuka transplant'},
         {date: '2022-03-01', comment: 'More profiles and scaffolding!'},
         {date: '2022-03-03', comment: 'Battering the slope and marking floor levels'},
-        {date: '2022-03-11', comment: 'Holes and footings'}
+        {date: '2022-03-11', comment: 'Holes and footings'},
+        {date: '2022-03-26', comment: 'Poles!'},
+        {date: '2022-04-01', comment: 'Concrete! Officially out of the ground!'}
       ]
     }
   },
    mounted() {
     this.count = this.info.length-1
   },
+  created() {
+        let that = this;
+        document.addEventListener('keyup', function (evt) {
+            if (evt.keyCode === 37) {
+                that.decrement();
+            };
+            if (evt.keyCode === 39) {
+                that.increment();
+            };
+        });
+    },
   methods: {
     increment() {
       if(this.hasNext){

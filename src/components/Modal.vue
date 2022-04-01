@@ -1,6 +1,6 @@
 <template>
 	<div :id="name" class="overlay text-left">
-         <a href="#" class="cancel"></a>
+         <a @click="cancel" class="cancel"></a>
 
          <div class="modal rounded p-2">
          	<div class="flex space-between items-center pb-2">
@@ -10,7 +10,7 @@
                 <p class="text-center text-xs text-slate-400">{{ currComment }}</p>
               </div>
 		      <a @click="$emit('increment')" class="w-2/12 md:w-1/4 bg-blue-300 rounded-lg items-center pr-2 md:p-2 ml-2 md:ml-6 mr-auto text-right">></a>
-              <a href="#" class="close px-2">&times;</a>
+              <a @click="cancel" class="close px-2">&times;</a>
             </div>
             <div>
                 <img class="modalimg rounded-lg" :src="src">
@@ -22,7 +22,20 @@
 
 <script>
 	export default {
-		props: ['name', 'currDateLabel', 'currComment', 'src']
+		props: ['name', 'currDateLabel', 'currComment', 'src'],
+        created() {
+            let that = this;
+            document.addEventListener('keyup', function (evt) {
+                if (evt.keyCode === 27) {
+                    that.cancel();
+                }
+            });
+        },
+        methods: {
+            cancel() {
+                window.location.href = "#"
+            }
+        }
 	}
 </script>
 
