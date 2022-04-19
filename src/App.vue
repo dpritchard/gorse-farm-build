@@ -73,7 +73,8 @@ export default {
         {date: '2022-03-03', comment: 'Battering the slope and marking floor levels'},
         {date: '2022-03-11', comment: 'Holes and footings'},
         {date: '2022-03-26', comment: 'Poles!'},
-        {date: '2022-04-01', comment: 'Concrete! Officially out of the ground!'}
+        {date: '2022-04-01', comment: 'Concrete! Officially out of the ground!'},
+        {date: '2022-04-15', comment: 'Ready for bearers'}
       ]
     }
   },
