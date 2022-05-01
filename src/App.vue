@@ -74,7 +74,9 @@ export default {
         {date: '2022-03-11', comment: 'Holes and footings'},
         {date: '2022-03-26', comment: 'Poles!'},
         {date: '2022-04-01', comment: 'Concrete! Officially out of the ground!'},
-        {date: '2022-04-15', comment: 'Ready for bearers'}
+        {date: '2022-04-15', comment: 'Ready for bearers'},
+        {date: '2022-04-23', comment: 'Bearers up!'},
+        {date: '2022-04-30', comment: 'Joists!'}
       ]
     }
   },
