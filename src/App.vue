@@ -77,7 +77,8 @@ export default {
         {date: '2022-04-15', comment: 'Ready for bearers'},
         {date: '2022-04-23', comment: 'Bearers up!'},
         {date: '2022-04-30', comment: 'Joists!'},
-        {date: '2022-05-08', comment: 'Thats a floor aye...'}
+        {date: '2022-05-08', comment: 'Thats a floor aye...'},
+        {date: '2022-05-12', comment: 'Walls starting to take shape'}
       ]
     }
   },
