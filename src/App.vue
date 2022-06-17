@@ -9,48 +9,14 @@
       <a @click="increment" class="w-1/6 md:w-1/4 bg-blue-300 rounded-lg items-center p-1 md:p-2 text-right">></a>
     </div>
     <div class="flex flex-wrap">
-      <div class="md:basis-1/2 lg:basis-1/4 p-2">
-        <a href="#s1"><img :src="s1path" class="rounded-lg"></a>
-      </div>
-      <div class="md:basis-1/2 lg:basis-1/4 p-2">
-        <a href="#s2"><img :src="s2path" class="rounded-lg"></a>
-      </div>
-      <div class="md:basis-1/2 lg:basis-1/4 p-2">
-        <a href="#s3"><img :src="s3path" class="rounded-lg"></a>
-      </div>
-      <div class="md:basis-1/2 lg:basis-1/4 p-2">
-        <a href="#s4"><img :src="s4path" class="rounded-lg"></a>
-      </div>
-      <div class="md:basis-1/2 lg:basis-1/4 p-2">
-        <a href="#s5"><img :src="s5path" class="rounded-lg"></a>
-      </div>
-      <div class="md:basis-1/2 lg:basis-1/4 p-2">
-        <a href="#s6"><img :src="s6path" class="rounded-lg"></a>
-      </div>
-      <div class="md:basis-1/2 lg:basis-1/4 p-2">
-        <a href="#s7"><img :src="s7path" class="rounded-lg"></a>
-      </div>
-      <div class="md:basis-1/2 lg:basis-1/4 p-2">
-        <a href="#s8"><img :src="s8path" class="rounded-lg"></a>
+      <div v-for="(dat, nme) in sites" class="md:basis-1/2 lg:basis-1/4 p-2">
+        <a :href=dat.href><img :src=path(nme) class="rounded-lg"></a>
       </div>
     </div>
 
-    <modal name="s1" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
-           :currComment="currComment" :src="s1path" />
-    <modal name="s2" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
-           :currComment="currComment" :src="s2path" />
-    <modal name="s3" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
-           :currComment="currComment" :src="s3path" />
-    <modal name="s4" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
-           :currComment="currComment" :src="s4path" />
-    <modal name="s5" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
-           :currComment="currComment" :src="s5path" />
-    <modal name="s6" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
-           :currComment="currComment" :src="s6path" />
-    <modal name="s7" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
-           :currComment="currComment" :src="s7path" />
-    <modal name="s8" @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
-           :currComment="currComment" :src="s8path" />
+    <modal v-for="(dat, nme) in sites"
+           :name=nme @decrement="decrement" @increment="increment" :currDateLabel="currDateLabel" 
+           :currComment="currComment" :src=path(nme) />
 </div>
 </template>
 
@@ -64,7 +30,7 @@ export default {
       missingPath: '/assets/images/missing.jpg',
       info: [
         {date: '2022-02-11', comment: 'Site after house removal'},
-        {date: '2022-02-14', comment: 'First day of site clearance'},
+        {date: '2022-02-14', comment: 'First day of site clearance', missing: ['s6']},
         {date: '2022-02-17', comment: 'Site clearance complete'},
         {date: '2022-02-20', comment: 'Initial survey'},
         {date: '2022-02-22', comment: 'Initial profiles and setout'},
@@ -76,11 +42,25 @@ export default {
         {date: '2022-04-01', comment: 'Concrete! Officially out of the ground!'},
         {date: '2022-04-15', comment: 'Ready for bearers'},
         {date: '2022-04-23', comment: 'Bearers up!'},
-        {date: '2022-04-30', comment: 'Joists!'},
+        {date: '2022-04-30', comment: 'Joists!', missing: ['s8']},
         {date: '2022-05-08', comment: 'Thats a floor aye...'},
         {date: '2022-05-12', comment: 'Walls starting to take shape'},
-        {date: '2022-05-26', comment: 'Walls up! Retaining almost ready for fill!'}
-      ]
+        {date: '2022-05-26', comment: 'Wall frames up! Retaining almost ready for fill!'},
+        {date: '2022-06-05', comment: 'Garage slab ready for concrete and a temporary deck!', missing: ['s5']},
+        {date: '2022-06-17', comment: 'Slab poured, starting eco ply and first interior photos.'},
+      ],
+      sites: {
+        s1: {href: '#s1', from: '2022-02-11'},
+        s2: {href: '#s2', from: '2022-02-11'},
+        s3: {href: '#s3', from: '2022-02-11'},
+        s4: {href: '#s4', from: '2022-02-11'},
+        s5: {href: '#s5', from: '2022-02-11'},
+        s6: {href: '#s6', from: '2022-02-11'},
+        s7: {href: '#s7', from: '2022-02-11'},
+        s8: {href: '#s8', from: '2022-02-11'},
+        s9: {href: '#s9', from: '2022-06-17'},
+        s10: {href: '#s10', from: '2022-06-17'},
+      },
     }
   },
    mounted() {
@@ -107,7 +87,20 @@ export default {
       if(this.hasPrevious){
         this.count-- 
       }
-    }
+    },
+    path(nme) {
+      if(!this.inSystem(nme)) {
+        return './assets/images/not_yet.jpg'
+      }
+      if(this.currMissing.includes(nme)) {
+        return './assets/images/missing.jpg'
+      }
+      return './assets/images/' + this.currDate + '/' + nme.toUpperCase() + '.jpg'
+    },
+    inSystem(nme){
+      return DateTime.fromISO(this.sites[nme].from) <= DateTime.fromISO(this.currDate)
+    },
+
   },
   computed: {
     currDate() {
@@ -116,41 +109,19 @@ export default {
     currComment() {
       return this.info[this.count].comment
     },
+    currMissing() {
+      return this.info[this.count].missing || []
+    },
     currDateLabel() {
       let dd = DateTime.fromISO(this.currDate)
-      return dd.toLocaleString() + ' (' + dd.toRelative() + ')'
+      return dd.toLocaleString() + ' (' + dd.toRelative({ unit: ["weeks", "days"] }) + ')'
     },
     hasPrevious() {
       return this.count > 0
     },
     hasNext() {
       return this.count < this.info.length-1
-    },
-    s1path() {
-      return './assets/images/' + this.currDate + '/S1.jpg'
-    },
-    s2path() {
-      return './assets/images/' + this.currDate + '/S2.jpg'
-    },
-    s3path() {
-      return './assets/images/' + this.currDate + '/S3.jpg'
-    },
-    s4path() {
-      return './assets/images/' + this.currDate + '/S4.jpg'
-    },
-    s5path() {
-      return './assets/images/' + this.currDate + '/S5.jpg'
-    },
-    s6path() {
-      return './assets/images/' + this.currDate + '/S6.jpg'
-    },
-    s7path() {
-      return './assets/images/' + this.currDate + '/S7.jpg'
-    },
-    s8path() {
-      return './assets/images/' + this.currDate + '/S8.jpg'
-    },
-
+    }
   }
 }
 </script>
