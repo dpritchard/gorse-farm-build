@@ -48,6 +48,7 @@ export default {
         {date: '2022-05-26', comment: 'Wall frames up! Retaining almost ready for fill!'},
         {date: '2022-06-05', comment: 'Garage slab ready for concrete and a temporary deck!', missing: ['s5']},
         {date: '2022-06-17', comment: 'Slab poured, starting eco ply and first interior photos.'},
+        {date: '2022-07-23', comment: 'Eco ply up and rafters installed!'},
       ],
       sites: {
         s1: {href: '#s1', from: '2022-02-11'},
@@ -60,6 +61,7 @@ export default {
         s8: {href: '#s8', from: '2022-02-11'},
         s9: {href: '#s9', from: '2022-06-17'},
         s10: {href: '#s10', from: '2022-06-17'},
+        s11: {href: '#s11', from: '2022-07-23'},
       },
     }
   },
