@@ -49,7 +49,8 @@ export default {
         {date: '2022-06-05', comment: 'Garage slab ready for concrete and a temporary deck!', missing: ['s5']},
         {date: '2022-06-17', comment: 'Slab poured, starting eco ply and first interior photos.'},
         {date: '2022-07-23', comment: 'Eco ply up and rafters installed!'},
-        {date: '2022-08-06', comment: 'Window sills, taping and roof membrane intalled!'}
+        {date: '2022-08-06', comment: 'Window sills, taping and roof membrane intalled!'},
+        {date: '2022-09-02', comment: 'Roof and internal insulation started.', missing: ['s1']}
       ],
       sites: {
         s1: {href: '#s1', from: '2022-02-11'},
