@@ -51,7 +51,20 @@ export default {
         {date: '2022-07-23', comment: 'Eco ply up and rafters installed!'},
         {date: '2022-08-06', comment: 'Window sills, taping and roof membrane intalled!'},
         {date: '2022-09-02', comment: 'Roof and internal insulation started.', missing: ['s1']},
-        {date: '2022-10-03', comment: 'Windows. Officially closed in!'}
+        {date: '2022-10-03', comment: 'Windows. Officially closed in!'},
+        {date: '2022-10-30', comment: 'Insulation done.', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
+        {date: '2022-11-05', comment: 'Gib started.', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9']},
+        {date: '2022-11-10', comment: 'Gib done.', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
+        {date: '2022-11-11', comment: 'Flooring moved inside.', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
+        {date: '2022-12-02', comment: 'Gib stopping done.', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
+        {date: '2022-12-15', comment: 'Flooring laid!', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
+        {date: '2022-12-20', comment: 'Floor sanding begins.', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
+        {date: '2022-12-21', comment: 'Floor sanding done.', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
+        {date: '2023-01-19', comment: 'Ready for floor finishing.', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
+        {date: '2023-01-25', comment: 'Floor oiled.', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
+        {date: '2023-02-08', comment: 'Prepping for paint.', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
+        {date: '2023-02-13', comment: 'Undercoat and touch up plaster.', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
+        {date: '2023-02-19', comment: 'Cladding and interior painting almost done.'}
       ],
       sites: {
         s1: {href: '#s1', from: '2022-02-11'},
