@@ -64,7 +64,9 @@ export default {
         {date: '2023-01-25', comment: 'Floor oiled.', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
         {date: '2023-02-08', comment: 'Prepping for paint.', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
         {date: '2023-02-13', comment: 'Undercoat and touch up plaster.', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
-        {date: '2023-02-19', comment: 'Cladding and interior painting almost done.'}
+        {date: '2023-02-19', comment: 'Cladding and interior painting almost done.'},
+        {date: '2023-03-24', comment: 'Almost there!', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']},
+        {date: '2023-03-30', comment: 'Finished!', missing: ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']}
       ],
       sites: {
         s1: {href: '#s1', from: '2022-02-11'},
